@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: servicio-productos
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+server:
+  port: 8001
