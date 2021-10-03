@@ -2,4 +2,9 @@ spring:
   application:
     name: servicio-items
 server:
-  port: 8002
+  port: ${PORT:0}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
