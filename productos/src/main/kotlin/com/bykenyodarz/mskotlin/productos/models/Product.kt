@@ -28,4 +28,7 @@ class Product: Serializable {
     @Column(name = "create_at")
     var createAt: LocalDateTime? = null
 
+    @Transient
+    var port: Int? = null
+
 }

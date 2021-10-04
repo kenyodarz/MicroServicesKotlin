@@ -1,24 +1,35 @@
 package com.bykenyodarz.mskotlin.productos.controllers
 
 import com.bykenyodarz.mskotlin.productos.services.IProductService
+import org.springframework.beans.factory.annotation.Value
+import org.springframework.core.env.Environment
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
+import java.util.stream.Collectors
 
 @RestController
-class ProductController(service: IProductService) {
+class ProductController(service: IProductService, env: Environment) {
 
     private val service: IProductService
+    private val env: Environment
+
+    @Value("\${server.port}")
+    private val port: Int? = null
 
     init {
         service.also { this.service = it }
+        env.also { this.env = it }
     }
 
     @GetMapping("/all")
     fun listAll(): ResponseEntity<*> {
-        return ResponseEntity.ok().body(service.findAll())
+        return ResponseEntity.ok().body(service.findAll().stream().map { producto ->
+            producto.port = env.getProperty("local.server.port")!!.toInt()
+            producto
+        }.collect(Collectors.toList()))
     }
 
     @GetMapping("/{id}")
