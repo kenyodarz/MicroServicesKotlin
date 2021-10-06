@@ -16,9 +16,6 @@ spring:
   application:
     name: microservicio-gateway
   cloud:
-    loadbalancer:
-      cache:
-        enabled: false
     gateway:
       routes:
       - id: servicio-productos
