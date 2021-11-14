@@ -3,6 +3,8 @@ package com.bykenyodarz.mskotlin.items.services.impl
 import com.bykenyodarz.mskotlin.items.models.Item
 import com.bykenyodarz.mskotlin.items.models.Product
 import com.bykenyodarz.mskotlin.items.services.ItemService
+import org.springframework.http.HttpEntity
+import org.springframework.http.HttpMethod
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
 import java.util.stream.Collectors
@@ -13,7 +15,7 @@ class ItemServiceImpl(clienteRest: RestTemplate) : ItemService {
     private val clienteRest: RestTemplate
 
     companion object {
-        private const val API_URL = "http://localhost:8001/"
+        private const val API_URL = "http://servicio-productos/"
     }
 
 
@@ -37,10 +39,22 @@ class ItemServiceImpl(clienteRest: RestTemplate) : ItemService {
         val pathVariables : MutableMap<String, String>? = null
         pathVariables?.set("id", id)
         val product: Product = this.clienteRest
-            .getForObject("http://localhost:8001/$id", Product::class.java, pathVariables)!!
+            .getForObject(API_URL + id, Product::class.java, pathVariables)!!
 
         return Item(product, quantity)
 
+    }
+
+    override fun save(product: Product): Product {
+        val body: HttpEntity<Product> = HttpEntity(product)
+        val response = clienteRest.exchange(API_URL + "save", HttpMethod.POST, body, Product::class.java)
+        return response.body!!
+    }
+
+    override fun delete(id: String) {
+        val pathVariables : MutableMap<String, String>? = null
+        pathVariables?.set("id", id)
+        clienteRest.delete(API_URL + "delete/$id", pathVariables)
     }
 
 }

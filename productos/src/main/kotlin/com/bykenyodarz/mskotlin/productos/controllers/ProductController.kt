@@ -70,7 +70,7 @@ class ProductController(service: IProductService, env: Environment) {
         return ResponseEntity.badRequest().body<Map<String, Any>>(errores)
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     fun delete(@PathVariable id: String): ResponseEntity<*> {
         val entity: Product? = service.findById(id)
         if (entity != null) {
