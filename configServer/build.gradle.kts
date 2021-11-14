@@ -1,13 +1,13 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "2.5.5"
+    id("org.springframework.boot") version "2.5.6"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("jvm") version "1.5.31"
     kotlin("plugin.spring") version "1.5.31"
 }
 
-group = "com.bykenyodarz.mskotlin"
+group = "com.bykenyodarz"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
@@ -18,12 +18,11 @@ repositories {
 extra["springCloudVersion"] = "2020.0.4"
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.5.31")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.31")
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:3.0.4")
-    implementation("org.glassfish.jaxb:jaxb-runtime:3.0.1")
-    developmentOnly("org.springframework.boot:spring-boot-devtools:2.5.5")
-    testImplementation("org.springframework.boot:spring-boot-starter-test:2.5.5")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.springframework.cloud:spring-cloud-config-server")
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 dependencyManagement {

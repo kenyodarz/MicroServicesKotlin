@@ -17,16 +17,16 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-validation")
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    developmentOnly("org.springframework.boot:spring-boot-devtools")
-    runtimeOnly("com.h2database:h2")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa:2.5.5")
+    implementation("org.springframework.boot:spring-boot-starter-validation:2.5.5")
+    implementation("org.springframework.boot:spring-boot-starter-web:2.5.5")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.0")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.5.31")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.31")
+    developmentOnly("org.springframework.boot:spring-boot-devtools:2.5.5")
+    runtimeOnly("com.h2database:h2:1.4.200")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:2.5.5")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:3.0.4")
 }
 
 tasks.withType<KotlinCompile> {

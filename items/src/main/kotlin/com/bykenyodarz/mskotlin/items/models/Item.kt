@@ -1,8 +1,8 @@
 package com.bykenyodarz.mskotlin.items.models
 
 data class Item(
-    val product: Product? = null,
-    val quantity: Int? = null) {
+    var product: Product? = null,
+    var quantity: Int? = null) {
 
 
     fun getTotal(): Double {
