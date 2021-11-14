@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
 
 @Entity
-@Table(name = "productos")
+@Table(name = "`productos")
 class Product: Serializable {
 
     @Id
@@ -24,11 +24,15 @@ class Product: Serializable {
     @Column(name = "precio")
     var price: Double? = null
 
-    @NotNull
     @Column(name = "create_at")
     var createAt: LocalDateTime? = null
 
     @Transient
     var port: Int? = null
+
+    @PrePersist
+    fun prePersist() {
+        createAt = LocalDateTime.now()
+    }
 
 }
