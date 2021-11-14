@@ -26,10 +26,12 @@ class ProductServiceImpl(repository: ProductRepository) : IProductService {
         return product.orElse(null)
     }
 
+    @Transactional
     override fun save(product: Product): Product {
         return this.repository.save(product)
     }
 
+    @Transactional
     override fun delete(product: Product) {
         this.repository.delete(product)
     }
