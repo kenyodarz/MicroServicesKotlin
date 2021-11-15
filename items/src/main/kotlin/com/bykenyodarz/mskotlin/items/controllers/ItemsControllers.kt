@@ -13,6 +13,7 @@ import org.springframework.core.env.Environment
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.net.URI
 
 
 @RefreshScope
@@ -78,6 +79,19 @@ class ItemsControllers(itemService: ItemService, env: Environment) {
                 "Propiedad [autor.nombre] no encontrada")
         }
         return ResponseEntity(jsonResponse, HttpStatus.OK)
+    }
+
+    @PostMapping("/save")
+    fun crear(@RequestBody product: Product): ResponseEntity<*>? {
+        val productResponse = itemService.save(product)
+        return ResponseEntity.created(URI.create("/" + productResponse.id)
+        ).body<Any>(productResponse)
+    }
+
+    @DeleteMapping("/eliminar/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    fun eliminar(@PathVariable id: String) {
+        itemService.delete(id)
     }
 
 }

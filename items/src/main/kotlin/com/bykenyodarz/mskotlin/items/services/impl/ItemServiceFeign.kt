@@ -31,10 +31,10 @@ class ItemServiceFeign(productoClienteRest: ProductoClienteRest) : ItemService {
     }
 
     override fun save(product: Product): Product {
-        TODO("Not yet implemented")
+        return productoClienteRest.create(product)
     }
 
     override fun delete(id: String) {
-        TODO("Not yet implemented")
+        productoClienteRest.eliminar(id)
     }
 }

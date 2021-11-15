@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
 
 @Entity
-@Table(name = "`productos")
+@Table(name = "productos")
 class Product: Serializable {
 
     @Id
