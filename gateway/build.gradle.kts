@@ -24,6 +24,8 @@ dependencies {
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:3.0.4")
     implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j")
     developmentOnly("org.springframework.boot:spring-boot-devtools:2.5.6")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.cloud:spring-cloud-starter-config")
     testImplementation("org.springframework.boot:spring-boot-starter-test:2.5.6")
 }
 
