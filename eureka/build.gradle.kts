@@ -21,7 +21,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.5.31")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.31")
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:3.0.4")
-    implementation("org.glassfish.jaxb:jaxb-runtime:3.0.1")
+    implementation("org.glassfish.jaxb:jaxb-runtime")
     developmentOnly("org.springframework.boot:spring-boot-devtools:2.5.6")
     testImplementation("org.springframework.boot:spring-boot-starter-test:2.5.6")
 }

@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: servicio-usuarios
+  datasource:
+    url: jdbc:postgresql://localhost:5432/MS2021
+    username: postgres
+    password: barcelona
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+server:
+  port: ${PORT:0}
+
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+logging:
+  level:
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+# App Properties
+example:
+  app:
+    jwtSecret: d16a249613a9969aca19846263698f0223eeccf0e64bd62284bac665671fcb17
+    jwtExpirationMs: 3600000
+    jwtRefreshExpirationMs: 864000000
