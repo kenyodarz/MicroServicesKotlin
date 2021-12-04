@@ -3,6 +3,8 @@ package com.bykenyodarz.mskotlin.usuarios.services
 import com.bykenyodarz.mskotlin.usuarios.models.Role
 import com.bykenyodarz.mskotlin.usuarios.models.User
 import com.fasterxml.jackson.annotation.JsonIgnore
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
@@ -16,8 +18,8 @@ class UserDetailsImpl(
     private var email: String,
     @JsonIgnore
     private var password: String,
-    private val authorities: Collection<GrantedAuthority>)
- : UserDetails {
+    private val authorities: Collection<GrantedAuthority>
+) : UserDetails {
 
 
     companion object {
@@ -84,5 +86,4 @@ class UserDetailsImpl(
     override fun isEnabled(): Boolean {
         return true
     }
-
 }
