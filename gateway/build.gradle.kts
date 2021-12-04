@@ -18,15 +18,18 @@ repositories {
 extra["springCloudVersion"] = "2020.0.4"
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.5.31")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.31")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.0")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.0")
     implementation("org.springframework.cloud:spring-cloud-starter-gateway:3.0.5")
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:3.0.4")
-    implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j")
-    developmentOnly("org.springframework.boot:spring-boot-devtools:2.5.6")
-    implementation("org.springframework.boot:spring-boot-starter-security")
-    implementation("org.springframework.cloud:spring-cloud-starter-config")
-    testImplementation("org.springframework.boot:spring-boot-starter-test:2.5.6")
+    implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j:2.0.2")
+    developmentOnly("org.springframework.boot:spring-boot-devtools:2.6.1")
+    implementation("org.springframework.boot:spring-boot-starter-security:2.6.1")
+    implementation("org.springframework.cloud:spring-cloud-starter-config:3.0.5")
+    implementation("io.jsonwebtoken:jjwt-api:0.11.2")
+    runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.2")
+    runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.11.2")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:2.6.1")
 }
 
 dependencyManagement {
