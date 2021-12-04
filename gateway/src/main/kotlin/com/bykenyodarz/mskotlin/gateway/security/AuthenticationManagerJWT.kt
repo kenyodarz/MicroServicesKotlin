@@ -17,7 +17,7 @@ import java.util.stream.Collectors
 
 
 @Component
-class AuthenticationManagerJWT: ReactiveAuthenticationManager {
+class AuthenticationManagerJWT : ReactiveAuthenticationManager {
 
     val logger: Logger = LoggerFactory.getLogger(AuthenticationManagerJWT::class.java)
 

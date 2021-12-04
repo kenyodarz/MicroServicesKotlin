@@ -1,9 +1,6 @@
 package com.bykenyodarz.mskotlin.gateway.security
 
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.cloud.gateway.filter.GlobalFilter
 import org.springframework.context.annotation.Bean
 import org.springframework.http.HttpMethod
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity
@@ -19,11 +16,12 @@ class SpringSecurityConfig {
     private val authenticationFilter: JwtAuthenticationFilter? = null
 
     @Bean
-    fun configure(http: ServerHttpSecurity): SecurityWebFilterChain{
+    fun configure(http: ServerHttpSecurity): SecurityWebFilterChain {
         return http.authorizeExchange()
             .pathMatchers("/api/usuarios/auth/**").permitAll()
-            .pathMatchers(HttpMethod.GET, "/api/productos/all"
-            ,"/api/items/all").permitAll()
+            .pathMatchers(
+                HttpMethod.GET, "/api/productos/all", "/api/items/all"
+            ).permitAll()
             .pathMatchers(HttpMethod.GET, "/api/usuarios/test/**").permitAll()
             .anyExchange()
             .authenticated()
